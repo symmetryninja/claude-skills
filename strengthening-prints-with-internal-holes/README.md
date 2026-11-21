@@ -15,7 +15,7 @@ holes never touch the outside, so the part looks and fits exactly the same.
 
 | Without holes | With holes |
 |---|---|
-| ![Slicer layer preview of the link with normal infill](images/before.png) | ![The same link with strengthening holes: rows of solid perimeter posts in the joints](images/after.png) |
+| ![Simulated slicer layer of the link with normal infill](images/before.png) | ![The same simulated layer with strengthening holes: solid perimeter posts in the joints](images/after.png) |
 
 One layer of the same arm link, without holes (left) and with them (right). These are
 rendered from the model with 4 perimeters and sparse infill, matching what the slicer
