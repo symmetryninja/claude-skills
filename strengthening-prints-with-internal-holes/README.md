@@ -15,6 +15,21 @@ holes never touch the outside, so the part looks and fits exactly the same.
 |---|---|
 | ![Slicer layer preview of a joint with normal infill](images/before.png) | ![The same layer with strengthening holes: solid perimeter posts](images/after.png) |
 
+## Where this came from
+
+I found this by accident. I put the wrong screw holes in a part, and it didn't snap where
+it should have. That's when it clicked: more holes means more perimeters, and perimeters
+are the strongest thing a slicer lays down. I've since seen other people use the same trick.
+This skill doesn't invent it. What it adds is having Claude apply it correctly: the right
+values, holes that never break the surface, and a check that proves it. You don't have to
+place holes by hand or set up modifiers in your slicer.
+
+Honestly, this should be a slicer feature. A "strengthening" option could find thin areas
+around holes and bolt bosses and add these internal walls automatically. Today you can only
+get close by hand, with modifier meshes. Until a slicer does it, there's this skill.
+
+— symmetryninja
+
 ## The recipe
 
 | Rule | Value |
