@@ -17,10 +17,11 @@ holes never touch the outside, so the part looks and fits exactly the same.
 |---|---|
 | ![Slicer layer preview of the link with normal infill](images/before.png) | ![The same link with strengthening holes: rows of solid perimeter posts in the joints](images/after.png) |
 
-The same arm link sliced with the same profile. Without holes (left), the fork and tongue
-are thin walls round sparse infill. With holes (right), the joint ends fill with tight
-perimeter rings that fuse into solid posts. The middle of the link, which doesn't need it,
-keeps its normal infill.
+One layer of the same arm link, without holes (left) and with them (right). These are
+rendered from the model with 4 perimeters and sparse infill, matching what the slicer
+showed. Without holes, the fork and tongue are thin walls round sparse infill. With holes,
+the joint ends fill with perimeter rings that fuse into solid posts. The middle of the link,
+which doesn't need it, keeps its normal infill.
 
 ## Where this came from
 

@@ -9,3 +9,5 @@ Plain-language timeline of what was done and when.
   accident) and the case for it being a slicer feature, to the skill's README.
 - **2026-11-21** - Added the part render and before/after slicer previews to the internal-holes
   skill's README, cropped and scaled to match, with metadata stripped.
+- **2026-11-21** - Swapped the README screenshots for matching renders made from the model with
+  one camera (the part, and a simulated layer without and with holes).
