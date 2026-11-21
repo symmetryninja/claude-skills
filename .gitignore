@@ -11,3 +11,6 @@ __pycache__/
 
 # local list of private terms for `just scan`, never committed
 .scan-private-terms
+
+# original, unprocessed screenshots (published versions are cropped and stripped)
+*/images/source/

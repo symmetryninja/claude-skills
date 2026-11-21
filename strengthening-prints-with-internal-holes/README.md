@@ -4,6 +4,8 @@ A Claude Code skill for making FDM 3D prints much stronger exactly where they ne
 (joints, forks, hinge tongues, bolt bosses, clamps) without raising infill or changing your
 slicer profile.
 
+![An arm link with a fork joint at one end and a tongue at the other](images/part.png)
+
 ## The trick
 
 Your slicer lays perimeters round every hole. Put a grid of small holes *inside* a weak area
@@ -13,7 +15,12 @@ holes never touch the outside, so the part looks and fits exactly the same.
 
 | Without holes | With holes |
 |---|---|
-| ![Slicer layer preview of a joint with normal infill](images/before.png) | ![The same layer with strengthening holes: solid perimeter posts](images/after.png) |
+| ![Slicer layer preview of the link with normal infill](images/before.png) | ![The same link with strengthening holes: rows of solid perimeter posts in the joints](images/after.png) |
+
+The same arm link sliced with the same profile. Without holes (left), the fork and tongue
+are thin walls round sparse infill. With holes (right), the joint ends fill with tight
+perimeter rings that fuse into solid posts. The middle of the link, which doesn't need it,
+keeps its normal infill.
 
 ## Where this came from
 

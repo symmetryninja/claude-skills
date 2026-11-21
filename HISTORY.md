@@ -7,3 +7,5 @@ Plain-language timeline of what was done and when.
   perimeters in weak areas without raising infill.
 - **2026-11-21** - Added the story of where the internal-holes trick came from (found by
   accident) and the case for it being a slicer feature, to the skill's README.
+- **2026-11-21** - Added the part render and before/after slicer previews to the internal-holes
+  skill's README, cropped and scaled to match, with metadata stripped.
