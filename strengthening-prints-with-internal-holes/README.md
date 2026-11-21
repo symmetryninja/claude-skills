@@ -24,9 +24,15 @@ This skill doesn't invent it. What it adds is having Claude apply it correctly: 
 values, holes that never break the surface, and a check that proves it. You don't have to
 place holes by hand or set up modifiers in your slicer.
 
+Slicers don't do this today. The closest tool is a modifier mesh, which raises the infill
+inside a box you place by hand. That changes the infill of the whole box, and it's still
+infill, which is rarely worth printing at 100%. This trick does something different. It
+builds dense, continuous perimeter walls inside the part, exactly round the area that needs
+them, and the region comes out close to solid.
+
 Honestly, this should be a slicer feature. A "strengthening" option could find thin areas
-around holes and bolt bosses and add these internal walls automatically. Today you can only
-get close by hand, with modifier meshes. Until a slicer does it, there's this skill.
+around holes and bolt bosses and add these internal walls automatically. Until a slicer does
+it, there's this skill.
 
 — symmetryninja
 
