@@ -55,6 +55,43 @@ it, there's this skill.
 | Top/bottom clearance | 0.5 mm from the top and bottom faces |
 | Slicer | At least 4 perimeters, about 0.45 mm lines |
 
+## Using it with other CAD programs
+
+The trick lives in the slicer, so it works whatever you design in. Only the way you add the
+holes changes.
+
+**1. Post-process the exported STL (any CAD program).** OpenSCAD can import an STL, so the
+skill's snippet runs unchanged on a part from Fusion 360, FreeCAD or anything else. Export
+the part as STL, already in its print orientation, then:
+
+```openscad
+module part_in_print_orientation() import("my_part.stl");
+// ...followed by the skill's snippet, unchanged
+```
+
+You get the same automatic clipping: holes stay clear of every surface, bolt hole and
+pocket. `check_internal_holes.py` then confirms the result against your original STL. This
+is the most reliable route. The catch is that it works on a mesh, so you re-run it after
+each design change rather than keeping the holes in your CAD model.
+
+**2. Build it in your CAD program.** Any CAD program with solid booleans and offsets can do
+it in three steps: a pattern of holes, a shrunk copy of the part, and the overlap of the two
+cut from the part.
+- **Fusion 360 and similar parametric CAD:**
+  - Pattern 1 mm cylinders as a separate body.
+  - Make a shrunk copy of the part with an inward offset of about 1 mm.
+  - Intersect the cylinders with the shrunk copy, then subtract the result from the part.
+  - Offsets are usually uniform, so the holes stop about 1 mm from the top and bottom faces
+    rather than 0.5 mm. That's fine, or trim the cylinder ends by hand.
+- **FreeCAD:** the same steps (an array of cylinders, an offset, a common, a cut). Or have
+  Claude write a Python macro that does it exactly.
+- **Code-based CAD (CadQuery, build123d and similar):** a near-direct port of the OpenSCAD
+  version, including different side and top/bottom clearances.
+
+**3. Add it in the slicer.** PrusaSlicer, SuperSlicer and OrcaSlicer let you place
+negative-volume cylinders inside a part. That works with any file, but you place each one by
+hand and nothing keeps them clear of walls and holes. Check the layer preview carefully.
+
 ## What the skill gives Claude
 
 - When to use the trick, and the reasons behind each value.

@@ -11,3 +11,6 @@ Plain-language timeline of what was done and when.
   skill's README, cropped and scaled to match, with metadata stripped.
 - **2026-11-21** - Swapped the README screenshots for matching renders made from the model with
   one camera (the part, and a simulated layer without and with holes).
+- **2026-11-21** - Added a section on using the internal-holes trick with other CAD programs:
+  post-processing any exported STL (tested), building it in Fusion 360-style CAD or FreeCAD,
+  or adding negative volumes in the slicer.
