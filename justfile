@@ -59,3 +59,8 @@ validate:
 # run each skill's tests (any <skill>/tests/run.sh)
 test:
     for t in */tests/run.sh; do echo "== $t"; bash "$t"; done
+
+# check, then commit everything staged and unstaged with a UTC timestamp
+commit msg: check
+    git add -A
+    TZ=UTC git commit -m "{{msg}}"

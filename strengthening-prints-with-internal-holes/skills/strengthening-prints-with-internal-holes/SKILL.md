@@ -1,6 +1,6 @@
 ---
 name: strengthening-prints-with-internal-holes
-description: Use when a 3D-printed part (FDM, any slicer, often modelled in OpenSCAD) needs to be stronger in specific areas such as joints, forks, hinge tongues, bolt bosses or clamps, without raising infill or changing the slicer profile, or when someone mentions adding internal holes, voids or "arbitrary walls" to force extra perimeters.
+description: Use when a 3D-printed part (FDM, any slicer; modelled in OpenSCAD, FreeCAD, Fusion 360 or any CAD that exports STL or STEP) needs to be stronger in specific areas such as joints, forks, hinge tongues, bolt bosses or clamps, without raising infill or changing the slicer profile, or when someone mentions adding internal holes, voids or "arbitrary walls" to force extra perimeters.
 ---
 
 # Strengthening prints with internal holes
@@ -64,6 +64,27 @@ difference() {
 
 Keep the holes in the print exports only. Assembly and collision views don't
 need them.
+
+## Other CAD programs
+
+Pick the first route that fits:
+
+| Situation | Route |
+|---|---|
+| You can drive **FreeCAD** (its Python, a macro, or an MCP connection) | Run `scripts/strengthen_freecad.py` on the solid. It uses the same shrink-and-clip method and clearances: `exec(open(path).read())`, then `obj.Shape = add_strengthening_holes(obj.Shape)`. A PartDesign Body's shape can't be assigned: put the result in a new `Part::Feature` instead. |
+| **Fusion 360**, other CAD, or only an exported file | Export **STL in print orientation**. Run it through the OpenSCAD snippet with `module part_in_print_orientation() import("part.stl");`, or through the FreeCAD script from a shell (it also reads STEP and STL). |
+| Nothing scriptable at all | Negative-volume cylinders in the slicer (PrusaSlicer, SuperSlicer, Orca). These are placed by hand with nothing keeping them clear of walls, so check the layer preview carefully. |
+
+FreeCAD from a shell (writes `out_plain.stl` and `out_strengthened.stl` for the checker):
+
+```bash
+freecadcmd -c "import sys; sys.argv=['x', 'part.step', 'out']; exec(open('scripts/strengthen_freecad.py').read())"
+```
+
+Building the holes natively in Fusion 360 should work with the same steps (a hole pattern, a
+shrunk copy, intersect, cut), but it hasn't been done or tested yet. Use the export route.
+
+Whatever the route, the result must pass `check_internal_holes.py` before it's done.
 
 ## Verify the STL
 

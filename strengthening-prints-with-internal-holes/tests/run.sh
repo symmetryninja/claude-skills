@@ -32,3 +32,19 @@ if python3 -I "$check" "$tmp/plain.stl" "$tmp/broken.stl" >/dev/null; then
   echo "FAIL: checker passed holes that break the surface"; exit 1
 fi
 echo "ok: snippet builds internal holes, checker passes them and fails through-holes"
+
+# FreeCAD builder: make a part in FreeCAD, save it as STEP, strengthen it, check it
+if command -v freecadcmd >/dev/null; then
+  cat > "$tmp/make_part.py" <<PY
+import FreeCAD, Part
+b = Part.makeBox(30, 16, 10)
+hole = Part.makeCylinder(2.2, 20, FreeCAD.Vector(8, -2, 5), FreeCAD.Vector(0, 1, 0))
+b.cut(hole).exportStep("$tmp/part.step")
+PY
+  freecadcmd -c "exec(open('$tmp/make_part.py').read())" >/dev/null 2>&1
+  freecadcmd -c "import sys; sys.argv=['x', '$tmp/part.step', '$tmp/fc']; exec(open('$skill/scripts/strengthen_freecad.py').read())" >/dev/null 2>&1
+  python3 -I "$check" "$tmp/fc_plain.stl" "$tmp/fc_strengthened.stl"
+  echo "ok: FreeCAD builder makes internal holes the checker passes"
+else
+  echo "skip: freecadcmd not installed, FreeCAD builder not tested"
+fi

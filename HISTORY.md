@@ -14,3 +14,6 @@ Plain-language timeline of what was done and when.
 - **2026-11-21** - Added a section on using the internal-holes trick with other CAD programs:
   post-processing any exported STL (tested), building it in Fusion 360-style CAD or FreeCAD,
   or adding negative volumes in the slicer.
+- **2026-11-21** - The skill now works beyond OpenSCAD: a tested FreeCAD script (on a live
+  model, STEP or STL) and a route for any CAD program through an exported STL. Native Fusion 360
+  is noted as possible but untested. Commits now use UTC timestamps.

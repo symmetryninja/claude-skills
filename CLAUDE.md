@@ -10,7 +10,9 @@ Each top-level folder is one plugin holding one skill.
   from private projects. Scan before every commit (`just scan`).
 - **Selected skills only.** A skill comes here only when its owner chooses to publish it.
   Skills tied to private projects stay out.
-- **Commits** use the GitHub no-reply author address (set in this repo's git config).
+- **Commits** use the GitHub no-reply author address (set in this repo's git config) and UTC
+  timestamps, so the history doesn't reveal a local timezone. Commit with `just commit "msg"`
+  (it runs `TZ=UTC git commit`).
 - **Images** have their metadata stripped before committing (`just strip-images`).
 - **Adding a skill:** create `<skill-name>/` with `.claude-plugin/plugin.json`,
   `skills/<skill-name>/SKILL.md` and a `README.md`. Add an entry to
