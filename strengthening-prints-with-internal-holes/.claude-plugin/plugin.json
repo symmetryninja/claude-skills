@@ -1,0 +1,13 @@
+{
+  "name": "strengthening-prints-with-internal-holes",
+  "version": "1.0.0",
+  "description": "Make FDM prints much stronger in joints, forks and bosses without raising infill, using hidden internal holes that force extra perimeters.",
+  "author": {
+    "name": "symmetryninja",
+    "url": "https://github.com/symmetryninja"
+  },
+  "homepage": "https://github.com/symmetryninja/claude-skills/tree/main/strengthening-prints-with-internal-holes",
+  "repository": "https://github.com/symmetryninja/claude-skills",
+  "license": "MIT",
+  "keywords": ["3d-printing", "fdm", "openscad", "slicer", "perimeters", "infill", "strength"]
+}

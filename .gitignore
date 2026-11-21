@@ -1,0 +1,13 @@
+# build and test output
+*.stl
+*.3mf
+*.gcode
+__pycache__/
+.DS_Store
+# never commit local settings or secrets
+.env*
+*.local.*
+.claude/settings.local.json
+
+# local list of private terms for `just scan`, never committed
+.scan-private-terms
